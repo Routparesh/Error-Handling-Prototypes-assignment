@@ -1,18 +1,16 @@
 
 try {
-    function getPerson(person){
-        this.name = person.name;
-        this.age = person.age ;     
-        if(person.name || person.age){
-            return `Invalid Parameter`
+    function getPerson(person) {
+        if(!person.name || !person.age) {
+            return `Invalid parameter type`
         }else{
-            return `{${person.name}, ${person.age}}`
-        }    
-    } 
+            return `{Name: ${person.name}, Age: ${person.age} }`
+        }
+    }
 } catch (error) {
-    console.log(`Invalid Parameter`)
+    return `Invalid parameter type`
 }
 
-const person = new getPerson([])
-
-console.log(person)
+console.log(getPerson({'name':'paresh', 'age': 29}))
+console.log(getPerson({name:'paresh'}))
+console.log(getPerson(['name', 'age']))
